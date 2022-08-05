@@ -1,0 +1,11 @@
+#header {
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    background: rgb(122, 175, 255);
+    color: var(--header-color);
+    overflow: hidden;
+}

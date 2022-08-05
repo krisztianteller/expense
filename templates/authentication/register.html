@@ -1,0 +1,75 @@
+{% extends 'base_auth.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <div class="card mt-5">
+      <div class="card-body">
+        <div class="card-title mb-sm-3">
+          <h4 class="d-flex justify-content-center">Register</h4>
+        </div>
+        <form action="{% url 'register' %}" method="post">
+
+          {% csrf_token %}
+          
+          {% include 'partials/_messages.html' %}
+          <div class="form-group">
+            <input
+              type="text"
+              name="username"
+              placeholder="Username"
+              id="usernameField"
+              value="{{fieldValues.username}}"
+              class="form-control form-control-sm"
+            />
+          </div>
+          <div class="invalid_feedback invalid-feedback" style="display:none">
+          </div>
+          <br>
+          <div class="form-group">
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              class="form-control form-control-sm"
+              id="emailField"
+              value="{{fieldValues.email}}"
+            />
+          </div>
+          <br>
+
+          <div class="emailFeedBackArea invalid-feedback" style="display:none">
+          </div>
+          <div class="form-group">
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              class="form-control form-control-sm"
+              id="passwordField"
+            />
+            
+            <small class="float-end showPasswordToggle">SHOW</small>
+            <br>
+          </div>
+          <br>
+          <div class="d-grid gap-2">
+            <input type="submit" value="Register" class="btn btn-lg btn-primary submit-btn" />
+          </div>
+        </form>
+
+      </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4"></div>
+</div>
+
+<script src="{% static 'js/register.js' %}"></script>
+
+{% endblock content %}
